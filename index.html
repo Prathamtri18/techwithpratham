@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanWear | Fashion Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            color: #222;
+        }
+
+        /* Navigation */
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ffcc66;
+        }
+
+        /* Hero section */
+        .hero {
+            height: 400px;
+            background: linear-gradient(
+                rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5)
+            ), url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffcc66;
+            color: #111;
+            padding: 12px 25px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background: #f0b744;
+        }
+
+        /* Products */
+        .products {
+            padding: 50px 8%;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px #ddd;
+        }
+
+        .product img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            margin: 15px 0 8px;
+        }
+
+        .price {
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* About section */
+        .about {
+            background: #eee;
+            text-align: center;
+            padding: 45px 10%;
+        }
+
+        .about h2 {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Mobile responsive design */
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">UrbanWear.</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Style That Defines You</h1>
+        <p>Discover the latest trends in everyday fashion.</p>
+        <a href="#products" class="btn">Shop Collection</a>
+    </section>
+
+    <section class="products" id="products">
+        <h2>Our Collection</h2>
+
+        <div class="product-container">
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80"
+                     alt="Classic white T-shirt">
+                <h3>Classic T-Shirt</h3>
+                <p class="price">₹599</p>
+                <button class="btn" onclick="addToCart('Classic T-Shirt', 599)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80"
+                     alt="Blue denim jeans">
+                <h3>Denim Jeans</h3>
+                <p class="price">₹1,299</p>
+                <button class="btn" onclick="addToCart('Denim Jeans', 1299)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80"
+                     alt="Stylish jacket">
+                <h3>Casual Jacket</h3>
+                <p class="price">₹1,999</p>
+                <button class="btn" onclick="addToCart('Casual Jacket', 1999)">
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About UrbanWear</h2>
+        <p>
+            We bring you stylish, comfortable and affordable clothing
+            for every occasion. Express yourself with UrbanWear.
+        </p>
+    </section>
+
+    <footer id="contact">
+        <p>Contact: support@urbanwear.example</p>
+        <p>&copy; 2026 UrbanWear. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+        let cartTotal = 0;
+
+        function addToCart(name, price) {
+            cartCount++;
+            cartTotal += price;
+
+            alert(
+                name + " added to cart!\n" +
+                "Items: " + cartCount + "\n" +
+                "Cart total: ₹" + cartTotal.toLocaleString("en-IN")
+            );
+        }
+    </script>
+
+</body>
+</html>
